@@ -11,8 +11,8 @@ export class LinkedList<T> {
         this.size = 0;
     }
 
-    insertFirst(name: string, score: number, next: Node<T> | null) {
-        let node = new Node(name, score, next);
+    insertFirst(name: string, score: number) {
+        let node = new Node(name, score);
         node.next = this.head;
         this.head = node;
 
@@ -22,12 +22,12 @@ export class LinkedList<T> {
         this.size++
     }
 
-    insertLast(name: string, score: number, next: Node<T> | null) {
+    insertLast(name: string, score: number) {
         if (!this.tail) {
-            this.insertFirst(name, score, next);
+            this.insertFirst(name, score);
         }
         else {
-            let node = new Node(name, score, next);
+            let node = new Node(name, score);
             this.tail.next = node;
             this.size++
         }
@@ -70,9 +70,11 @@ export class LinkedList<T> {
                 currentNode = currentNode.next;
             };
             
+            currentNode = this.head
+
             while (currentNode !== null) {
-                if (currentNode == maxScore) {
-                    listStudentMaxScore.push(currentNode.readData());
+                if (currentNode.score == maxScore) {
+                    listStudentMaxScore.push(currentNode);
                 }
                 currentNode = currentNode.next;
             }
