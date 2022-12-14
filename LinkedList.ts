@@ -46,14 +46,18 @@ export class LinkedList<T> {
 
     totalStudentFail() {
         let listStudentFail: any[] = [];
-        let currentNode = this.head;
-        while (currentNode !== null) {
-            if (currentNode.score <= 5) {
-                listStudentFail.push(currentNode.readData());
-                currentNode = currentNode.next
+        let currentNode: Node<T> | null = this.head;
+        
+            while (currentNode !== null) {
+                if (currentNode.score <= 5) {
+                    listStudentFail.push(currentNode.readData());
+                    currentNode = currentNode.next;
+                }
+                else {
+                    currentNode = currentNode.next;
+                }
             }
-        }
-        return listStudentFail;
+            return listStudentFail;
     }
 
     listStudentMaxScore() {
@@ -64,12 +68,10 @@ export class LinkedList<T> {
             while (currentNode !== null) {
                 if (maxScore < currentNode.score) {
                     maxScore = currentNode.score;
-                    console.log(maxScore);
-                    console.log(currentNode.score)
                 }
                 currentNode = currentNode.next;
             };
-            
+
             currentNode = this.head
 
             while (currentNode !== null) {
@@ -86,7 +88,7 @@ export class LinkedList<T> {
     findByName(name: string) {
         let currentNode = this.head;
         if (this.size) {
-            
+
             while (currentNode !== null) {
                 if (currentNode.name == name) {
                     return currentNode;

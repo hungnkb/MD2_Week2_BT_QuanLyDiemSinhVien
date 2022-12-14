@@ -9,6 +9,7 @@ export class Node<T> {
     }
 
     readData(): any | null {
-        return this.name + this.score + this.next;
+        return `Name: ${this.name} - Score: ${this.score}
+        `;
     }
 }
