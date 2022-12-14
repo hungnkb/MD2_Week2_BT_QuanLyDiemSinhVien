@@ -58,8 +58,8 @@ export class LinkedList<T> {
 
     listStudentMaxScore() {
         let listStudentMaxScore: any[] = []
-        let currentNode = this.head;
-        let maxScore = currentNode.score;
+        let currentNode: Node<T> | any = this.head;
+        let maxScore: number | any = currentNode.score;
         if (this.size) {
             while (currentNode !== null) {
                 if (maxScore < currentNode.score) {
