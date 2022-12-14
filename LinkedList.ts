@@ -18,7 +18,6 @@ export class LinkedList<T> {
 
         if (!this.tail) {
             this.tail = node;
-            this.size++;
         }
         this.size++
     }
@@ -59,7 +58,7 @@ export class LinkedList<T> {
     }
 
     listStudentMaxScore() {
-        let listStudentMaxScore: Node<T>[] = []
+        let listStudentMaxScore: Array<Node<T>> = []
         let currentNode: any = this.head;
         let maxScore = currentNode.score;
 
@@ -67,6 +66,8 @@ export class LinkedList<T> {
             while (currentNode !== null) {
                 if (maxScore < currentNode.score) {
                     maxScore = currentNode.score;
+                    console.log(maxScore);
+                    console.log(currentNode.score)
                 }
                 currentNode = currentNode.next;
             }
